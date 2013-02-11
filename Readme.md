@@ -4,6 +4,8 @@
 npm install assert-type
 ```
 
+[![Build Status](https://travis-ci.org/mlin/node-assert-type.png)](https://travis-ci.org/mlin/node-assert-type)
+
 One occasionally needs to design some JavaScript code conservatively, favoring
 correctness and safety over the language's natural strengths of flexibility
 and agility. Given JavaScript's dynamic typing, extensive runtime type
