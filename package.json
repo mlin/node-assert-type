@@ -1,0 +1,19 @@
+{
+  "name": "assert-type",
+  "version": "0.1.0",
+  "engines": {"node": ">=0.6.0"},
+  "main": "./index",
+  "author": "Mike Lin <mlin@mlin.net> (https://github.com/mlin)",
+  "description": "Runtime type assertions",
+  "dependencies": {
+    "coffee-script": "latest",
+    "underscore": "latest"
+  },
+  "devDependencies": {
+    "expect.js": "latest",
+    "mocha": "latest"
+  },
+  "scripts": {
+    "test": "node_modules/mocha/bin/mocha -R spec src/tests.js"
+  }
+}
