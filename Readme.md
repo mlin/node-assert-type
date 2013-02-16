@@ -293,7 +293,7 @@ node.js asynchronous calling convention, where the callback is of the form
 var F_ = ty.WrapFun_;
 
 var intFn_ = F_([ty.int, ty.bool, ty.fun], ty.int, function (x, b, cb) {
-                if (b) return cb(0-x); else return cb(x);
+                if (b) cb(null, 0-x); else cb(null, x);
               });
 
 intFn_(3, false, function(error, result) {
@@ -304,7 +304,7 @@ intFn_(3, true, function(error, result) {
 });
 intFn_(3, "", function(error, result) {}); // throws ty.TypeAssertionError
 
-F_([ty.fun], ty.int, function(cb) { return cb(true); })(function (error, result) {
+F_([ty.fun], ty.int, function(cb) { return cb(null, true); })(function (error, result) {
   // error is a ty.TypeAssertionError
 });
 ```
@@ -321,8 +321,8 @@ thrown, since one can't be sure the callback is even present in this case. If
 the type assertion fails on the return value, the resulting error is passed to
 the callback.
 
-There's also `_WrapFun` for functions that take the callback as the first
-argument rather than the last (useful for
+In addition to `WrapFun_` there's also `_WrapFun` for functions that take the
+callback as the first argument rather than the last (useful for
 [streamline.js](https://github.com/Sage/streamlinejs) code).
 
 Third and lastly, to write CPS functions not following the typical calling
