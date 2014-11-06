@@ -201,7 +201,7 @@ compositeTypes =
 
   # instance of given constructor (ditto)
   'inst.of': (Cons) ->
-                T(ty.fun)(Cons)
+                T(s.fun)(Cons)
                 # TODO: improve name & description
                 makeType "inst.of(...)", "instance of a specific constructor", (x) ->
                   s.obj(x) and (x instanceof Cons)
